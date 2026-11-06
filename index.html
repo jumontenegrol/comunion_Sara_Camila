@@ -10,7 +10,20 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Great+Vibes&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body class="bloqueado">
+  <div id="sobre" aria-label="Sobre de invitación">
+    <div class="sobre-caja" id="sobreCaja">
+      <div class="carta">
+        <img src="assets/img/caliz.png" alt="" class="sobre-caliz">
+        <span class="carta-t">Mi Primera Comunión</span>
+        <strong>Sara Camila</strong>
+      </div>
+      <div class="bolsillo"></div>
+      <div class="solapa"></div>
+      <button id="sello" type="button" aria-label="Abrir invitación">✝</button>
+    </div>
+    <p class="sobre-hint">Toca el sello para abrir tu invitación</p>
+  </div>
   <main class="invitation">
     <section class="cover" aria-labelledby="title">
       <div class="halo" aria-hidden="true"><span>✦</span></div>
@@ -37,6 +50,19 @@
       <div class="date-line"><span>SÁBADO</span><strong>21</strong><span>DE NOVIEMBRE</span></div>
       <p class="gold-rule">✧</p>
       <p class="date-note">Acompáñame a recibir a Jesús por primera vez<br>y a compartir este momento con mi familia.</p>
+      <div class="countdown-wrap">
+        <p class="eyebrow">Falta para celebrar</p>
+        <div class="countdown" id="countdown" aria-live="polite">
+          <div><strong id="cd-days">00</strong><span>Días</span></div>
+          <div><strong id="cd-hours">00</strong><span>Horas</span></div>
+          <div><strong id="cd-minutes">00</strong><span>Minutos</span></div>
+          <div><strong id="cd-seconds">00</strong><span>Segundos</span></div>
+        </div>
+      </div>
+      <div class="calendar" aria-label="Calendario de noviembre de 2026">
+        <h2>Noviembre <span>2026</span></h2>
+        <div class="calendar-grid" id="calendarGrid" role="grid" aria-label="Noviembre de 2026"></div>
+      </div>
     </section>
 
     <section class="events">
@@ -94,6 +120,59 @@
     </section>
   </main>
   <script>
+    // Fecha del evento: 21 de noviembre de 2026, a las 10:00 a. m. (hora Colombia).
+    const eventDate = new Date('2026-11-21T10:00:00-05:00');
+    const countdown = document.getElementById('countdown');
+    function updateCountdown() {
+      const remaining = eventDate.getTime() - Date.now();
+      if (remaining <= 0) {
+        countdown.innerHTML = '<p class="countdown-message">¡Hoy celebramos juntos!</p>';
+        return;
+      }
+      const totalSeconds = Math.floor(remaining / 1000);
+      document.getElementById('cd-days').textContent = String(Math.floor(totalSeconds / 86400)).padStart(2, '0');
+      document.getElementById('cd-hours').textContent = String(Math.floor((totalSeconds % 86400) / 3600)).padStart(2, '0');
+      document.getElementById('cd-minutes').textContent = String(Math.floor((totalSeconds % 3600) / 60)).padStart(2, '0');
+      document.getElementById('cd-seconds').textContent = String(totalSeconds % 60).padStart(2, '0');
+    }
+    updateCountdown();
+    window.setInterval(updateCountdown, 1000);
+
+    const calendarGrid = document.getElementById('calendarGrid');
+    const weekdays = ['Lun', 'Mar', 'Mié', 'Jue', 'Vie', 'Sáb', 'Dom'];
+    weekdays.forEach((day) => {
+      const heading = document.createElement('span');
+      heading.className = 'calendar-weekday';
+      heading.textContent = day;
+      heading.setAttribute('role', 'columnheader');
+      calendarGrid.appendChild(heading);
+    });
+    const firstDayOffset = (new Date(2026, 10, 1).getDay() + 6) % 7;
+    const daysInMonth = new Date(2026, 11, 0).getDate();
+    for (let blank = 0; blank < firstDayOffset; blank++) {
+      const empty = document.createElement('span');
+      empty.className = 'calendar-empty';
+      empty.setAttribute('role', 'gridcell');
+      calendarGrid.appendChild(empty);
+    }
+    for (let day = 1; day <= daysInMonth; day++) {
+      const cell = document.createElement('span');
+      cell.className = day === 21 ? 'calendar-day event-day' : 'calendar-day';
+      cell.textContent = day;
+      cell.setAttribute('role', 'gridcell');
+      if (day === 21) cell.setAttribute('aria-label', 'Sábado 21 de noviembre, día de la Primera Comunión');
+      calendarGrid.appendChild(cell);
+    }
+
+    const sobre = document.getElementById('sobre');
+    document.getElementById('sello').addEventListener('click', function () {
+      sobre.classList.add('abierto');
+      window.setTimeout(function () {
+        sobre.classList.add('fuera');
+        document.body.classList.remove('bloqueado');
+      }, 1900);
+    });
+
     document.getElementById('rsvpForm').addEventListener('submit', function (event) {
       event.preventDefault();
       const name = document.getElementById('guestName').value.trim();
