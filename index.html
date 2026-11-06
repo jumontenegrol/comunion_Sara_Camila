@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f8f5ef">
+  <title>Primera Comunión de Sara Camila</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Great+Vibes&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="invitation">
+    <section class="cover" aria-labelledby="title">
+      <div class="halo" aria-hidden="true"><span>✦</span></div>
+      <p class="eyebrow">Con la bendición de Dios</p>
+      <h1 id="title">Mi Primera<br>Comunión</h1>
+      <div class="host">Sara Camila</div>
+      <div class="divider"><span>✧</span></div>
+      <p class="quote">“Este es el pan que baja del cielo, para que quien lo coma no muera.”<br><small>Juan 6, 50</small></p>
+      <figure class="photo-placeholder candle-photo">
+        <div class="photo-icon" aria-hidden="true">♨</div>
+        <figcaption>Foto del cirio</figcaption>
+      </figure>
+      <p class="invited">Con mucha alegría, mis padres</p>
+      <p class="parents">Wilson Bernal <i>&amp;</i> Leidy Pedreros</p>
+      <p class="invited">te invitan a celebrar conmigo este día tan especial.</p>
+      <a class="down" href="#celebracion" aria-label="Ver detalles">⌄</a>
+    </section>
+
+    <section class="portrait">
+      <figure class="photo-placeholder sara-photo">
+        <div class="photo-icon" aria-hidden="true">♡</div>
+        <figcaption>Foto de Sara Camila</figcaption>
+      </figure>
+    </section>
+
+    <section class="date" id="celebracion">
+      <p class="eyebrow">Una fecha para recordar</p>
+      <div class="date-line"><span>SÁBADO</span><strong>21</strong><span>DE NOVIEMBRE</span></div>
+      <p class="gold-rule">✧</p>
+      <p class="date-note">Acompáñame a recibir a Jesús por primera vez<br>y a compartir este momento con mi familia.</p>
+    </section>
+
+    <section class="events">
+      <article class="event-card">
+        <div class="event-icon" aria-hidden="true">✝</div>
+        <p class="eyebrow">La ceremonia</p>
+        <h2>Santa Misa</h2>
+        <p class="time">10:00 a. m.</p>
+        <p>Templo</p>
+      </article>
+      <span class="event-connector" aria-hidden="true">✧</span>
+      <article class="event-card">
+        <div class="event-icon" aria-hidden="true">❋</div>
+        <p class="eyebrow">Después celebremos</p>
+        <h2>Recepción</h2>
+        <p class="time">5:00 p. m.</p>
+        <p>Salón de eventos Rigoberto Pizón<br>Cerca a Don Jhon Riaño</p>
+      </article>
+    </section>
+
+    <section class="schedule">
+      <p class="eyebrow">Celebremos juntos</p>
+      <h2>Itinerario</h2>
+      <div class="schedule-row"><span>10:00 a. m.</span><i></i><span>Santa Misa</span></div>
+      <div class="schedule-row"><span>5:00 p. m.</span><i></i><span>Recepción</span></div>
+    </section>
+
+    <section class="gift">
+      <div class="gift-mark" aria-hidden="true">♡</div>
+      <p class="eyebrow">Un detalle con cariño</p>
+      <h2>Lluvia de sobres</h2>
+      <p>Tu compañía es el regalo más especial.<br>Si deseas tener un detalle conmigo,<br>agradezco una lluvia de sobres.</p>
+    </section>
+
+    <footer>
+      <p class="eyebrow">Será una alegría contar contigo</p>
+      <h2>Confirma tu asistencia</h2>
+      <form id="rsvpForm">
+        <label for="guestName">Nombre de quien asistirá</label>
+        <input id="guestName" name="nombre" type="text" autocomplete="name" placeholder="Escribe tu nombre" required>
+        <button class="rsvp" type="submit">Confirmar por WhatsApp</button>
+      </form>
+      <p class="phone">Gracias por acompañarnos en este día tan especial.</p>
+      <div class="footer-flourish">✧ &nbsp; ✦ &nbsp; ✧</div>
+      <p class="signature">Con cariño, Sara Camila</p>
+    </footer>
+  </main>
+  <script>
+    document.getElementById('rsvpForm').addEventListener('submit', function (event) {
+      event.preventDefault();
+      const name = document.getElementById('guestName').value.trim();
+      if (!name) return;
+      const message = `Cordial saludo. Soy ${name} y deseo confirmar mi asistencia a la Primera Comunión de Sara Camila. Muchas gracias por la invitación.`;
+      window.open(`https://wa.me/573163179801?text=${encodeURIComponent(message)}`, '_blank', 'noopener');
+    });
+  </script>
+</body>
+</html>
