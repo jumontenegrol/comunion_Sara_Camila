@@ -108,6 +108,10 @@ body {
 .events { display: flex; align-items: stretch; justify-content: center; padding: 62px 22px; gap: 16px; text-align: center; }
 .event-card { flex: 1; padding: 22px 12px; max-width: 280px; }
 .event-icon, .gift-mark { font-size: 28px; color: var(--gold); margin-bottom: 15px; }
+.cross-symbol { display: inline-block; position: relative; width: 24px; height: 30px; color: currentColor; }
+.cross-symbol::before, .cross-symbol::after { content: ""; position: absolute; display: block; background: currentColor; border-radius: 1px; }
+.cross-symbol::before { width: 4px; height: 29px; left: 10px; top: 0; }
+.cross-symbol::after { width: 22px; height: 4px; left: 1px; top: 8px; }
 .event-card h2, .schedule h2, .gift h2, footer h2 { font: 500 37px/1.1 "Cormorant Garamond", serif; color: #6c5a40; margin: 0 0 14px; }
 .event-card p:not(.eyebrow) { font: 16px/1.5 "Cormorant Garamond", serif; color: var(--muted); }
 .event-card .time { color: var(--ink); font: 500 20px "Cormorant Garamond", serif; margin: 0; }
@@ -282,4 +286,77 @@ body.bloqueado { overflow: hidden; }
 @keyframes sello-latido { 50% { transform: translate(-50%, -50%) scale(1.08); } }
 @media (max-width: 520px) {
   #sobre { background-position: left -12px center, right -12px center, center; background-size: 90px auto, 90px auto, cover; }
+}
+
+/* Ajustes de lectura y distribución para teléfonos. */
+@media (max-width: 600px) {
+  body { font-size: 16px; }
+  .invitation { width: 100%; box-shadow: none; }
+  .cover {
+    min-height: 100vh;
+    min-height: 100svh;
+    padding: clamp(42px, 10vh, 70px) 22px 55px;
+    background-position: left -6px top 95px, right -6px top 95px, center;
+    background-size: 58px auto, 58px auto, cover;
+  }
+  .halo { width: 82px; height: 82px; font-size: 33px; margin-bottom: 22px; }
+  .cover h1 { font-size: clamp(39px, 12vw, 58px); }
+  .host { font-size: 44px; }
+  .quote { max-width: 310px; font-size: 17px; }
+  .invited { max-width: 300px; font-size: 16px; }
+  .parents { font-size: 20px; }
+
+  .date { padding: 52px 18px 48px; }
+  .date-line { gap: 10px; font-size: 9px; letter-spacing: .1em; }
+  .date-line strong { font-size: 62px; padding: 0 14px; }
+  .date-note { font-size: 17px; }
+  .date-note br { display: none; }
+  .countdown-wrap { margin: 30px auto; }
+  .countdown { gap: clamp(7px, 3vw, 16px); }
+  .countdown > div { min-width: 48px; }
+  .countdown strong { font-size: 28px; }
+  .countdown span { font-size: 8px; letter-spacing: .08em; }
+  .calendar { width: min(100%, 330px); padding: 17px 14px 14px; }
+  .calendar-grid { gap: 2px; }
+  .calendar-weekday, .calendar-day, .calendar-empty { min-height: 29px; }
+  .event-day { width: 27px; height: 27px; min-height: 27px; }
+
+  .events { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 0; padding: 42px 14px; background-size: 42px auto; }
+  .event-card { min-width: 0; width: 100%; padding: 16px 8px; }
+  .event-card h2 { font-size: clamp(25px, 7vw, 32px); }
+  .event-card p:not(.eyebrow) { font-size: 14px; overflow-wrap: anywhere; }
+  .event-card .eyebrow { font-size: 8px; letter-spacing: .14em; }
+  .event-connector { display: none; }
+  .event-icon { min-height: 38px; display: grid; place-items: center; }
+  .map-link { font-size: 8px; line-height: 1.5; }
+
+  .schedule { padding: 46px 18px 50px; }
+  .schedule-row { max-width: 310px; gap: 13px; font-size: 17px; }
+  .schedule-row span:first-child { width: 95px; }
+  .gift { padding: 50px 20px; }
+  .gift > p:last-child { font-size: 17px; }
+  footer { padding: 48px 20px 42px; }
+  footer h2 { font-size: 29px; }
+  footer form { width: min(100%, 330px); }
+  .photo-break { padding: 30px 14px; background-size: 42px auto; }
+  .portrait { padding: 32px 14px; background-size: 45px auto; }
+  .portrait-image { width: min(82%, 360px); max-height: 245px; }
+  .wide-image { width: min(82%, 480px); max-height: 230px; }
+  .final-photo .wide-image { width: min(68%, 340px); max-height: 175px; }
+
+  .sobre-caja { width: min(86vw, 350px); height: clamp(190px, 58vw, 225px); }
+  #sello { width: 58px; height: 58px; }
+  .carta-t { font-size: 14px; }
+  .carta strong { font-size: 32px; }
+  .sobre-hint { font-size: 15px; text-align: center; padding: 0 18px; }
+}
+@media (max-width: 360px) {
+  .cover { padding-left: 17px; padding-right: 17px; }
+  .date-line { gap: 7px; font-size: 8px; }
+  .date-line strong { font-size: 56px; padding: 0 11px; }
+  .events { padding-left: 8px; padding-right: 8px; }
+  .event-card { padding-left: 5px; padding-right: 5px; }
+  .calendar { padding-left: 10px; padding-right: 10px; }
+  .countdown { gap: 7px; }
+  .countdown > div { min-width: 44px; }
 }
