@@ -1,0 +1,64 @@
+/* Solo colores alternativos: lavanda, lila y blanco. Se usa junto a tema-flores.css. */
+:root {
+  --gold: #9a83ad;
+  --ink: #4e4655;
+  --muted: #83798d;
+  --paper: #fffdfd;
+  --line: #e2d9e9;
+  --section-wash: #f4eef8;
+  --olive: #927ba6;
+}
+body { background: #f0ebf4; color: var(--ink); }
+.invitation { background: #fffdfd; box-shadow: 0 20px 60px #6a56751c; }
+.cover { border-color: #ddd2e7; outline-color: #c7b2d9; background-color: #fffdfd; background-image: url("assets/img/paloma.png"), url("assets/img/cruz.png"), radial-gradient(ellipse at 50% 28%, #fff, #faf7fc 76%); }
+.halo { color: #9881ac; border-color: #ddd2e7; }
+.halo::before, .halo::after { background: linear-gradient(90deg, transparent, #d8c8e4, transparent); }
+.halo span, .divider span { background: #fffdfd; }
+.eyebrow { color: #8e78a5; }
+.cover h1, .event-card h2, .schedule h2, .gift h2, footer h2 { color: #685475; }
+.host, .signature { color: #9881ac; }
+.quote, .date-note, .event-card p:not(.eyebrow), .gift > p:last-child { color: #7e7487; }
+.parents { color: #665574; }
+.parents i, .divider, .gold-rule, .down { color: #a994be; }
+.date, .schedule { background: linear-gradient(180deg, #f6f1f9, #fbf9fc); border-block: 1px solid #e7dfee; }
+.date-line { color: #947ea8; }
+.date-line strong { color: #62536f; border-color: #ded2e7; }
+.countdown > div { min-width: 62px; padding: 12px 8px 10px; border: 1px solid #e4d9ec; border-radius: 12px; background: #fff; }
+.countdown strong { color: #806b95; }
+.countdown span, .calendar-weekday { color: #93849e; }
+.calendar { border-color: #e1d7e8; border-radius: 16px; background: #fff; box-shadow: 0 10px 26px #5d4a7014; }
+.calendar h2, .calendar-day { color: #6d5c7c; }
+.calendar h2 span { color: #9b84b1; }
+.event-day { background: #a58cba; color: #fff; box-shadow: 0 3px 9px #9277a94d; }
+.events { background: radial-gradient(ellipse at 0 0, #f4eef8, transparent 50%), #fffdfd; }
+.event-card { padding: 26px 18px; border: 1px solid #e5dceb; border-radius: 18px; background: linear-gradient(150deg, #fff, #faf7fc); box-shadow: 0 9px 24px #6e5b8010; }
+.event-icon, .gift-mark, .cross-symbol { color: #a08ab5; }
+.event-card .time { color: #655675; }
+.map-link { color: #87719c; }
+.photo-break, .portrait { background: linear-gradient(135deg, #f7f2fa, #fff 50%, #f4eef8); }
+.photo-placeholder { border-color: #d8c9e2; outline-color: #eee7f3; background: #fff; }
+.final-photo { background-color: #f5f0f8; }
+.schedule-row span:first-child { color: #917aa5; }
+.schedule-row i { border-color: #aa94bd; }
+.schedule-row i::after { background: #e3d9e9; }
+footer { background: linear-gradient(180deg, #f7f2fa, #eee7f4); border-top: 1px solid #dfd4e8; }
+footer label { color: #746a7e; }
+footer input { border-color: #ddd1e6; border-radius: 8px; }
+footer input:focus { border-color: #a38ab7; box-shadow: 0 0 0 3px #a38ab720; }
+.rsvp { color: #fff; background: #9c84b0; border-color: #9c84b0; border-radius: 30px; }
+.rsvp:hover { background: #806a94; border-color: #806a94; }
+.phone { color: #81758a; }
+.footer-flourish { color: #aa94bd; }
+#sobre { background-image: url("assets/img/paloma2.png"), url("assets/img/paloma.png"), radial-gradient(ellipse at center, #fff, #eee7f4); }
+.sobre-caja { background: linear-gradient(145deg, #f8f3fb, #e3d5ec); box-shadow: 0 24px 48px #68527635, 0 0 0 1px #bba7c988; }
+.carta { background: #fffdfd; border-color: #d8c9e2; }
+.carta-t, .sobre-hint { color: #806b95; }
+.carta strong { color: #a08ab5; }
+.bolsillo { background: linear-gradient(155deg, #eee4f4, #d6c5e2); }
+.solapa { background: linear-gradient(180deg, #f6eff9, #dac9e6); filter: drop-shadow(0 5px 4px #68527635); }
+#sello { background: radial-gradient(circle at 34% 28%, #b8a0ca, #806a94 76%); border-color: #e7dcee; }
+@media (max-width: 600px) {
+  .cover { background-position: left -7px top 98px, right -7px top 98px, center; background-size: 53px auto, 53px auto, cover; }
+  .event-card { padding: 16px 8px; border-radius: 14px; }
+  .countdown > div { min-width: 0; flex: 1; padding-inline: 4px; }
+}

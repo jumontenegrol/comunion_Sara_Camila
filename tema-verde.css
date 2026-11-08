@@ -1,0 +1,145 @@
+/* Propuesta principal: blanco marfil, verde salvia/oliva y oro suave. */
+:root {
+  --gold: #ae9258;
+  --ink: #39493d;
+  --muted: #718075;
+  --paper: #fffefa;
+  --line: #d8ddcf;
+  --sage: #e9eee4;
+  --olive: #69775d;
+  --deep-green: #4f624d;
+  --section-wash: #f1f4ec;
+}
+
+body { background: #e8ede5; color: var(--ink); }
+.invitation { background: var(--paper); box-shadow: 0 22px 70px #51604a20; }
+.cover {
+  border-color: #c7cdbd;
+  outline-color: #d9c79f;
+  background-color: #fffefa;
+  background-image:
+    url("assets/img/paloma.png"),
+    url("assets/img/cruz.png"),
+    radial-gradient(ellipse at 50% 26%, #fff 0, #fffefa 58%, #f3f5ee 100%);
+  background-position: left 16px top 74px, right 16px top 74px, center;
+  background-size: 132px auto, 132px auto, cover;
+}
+.halo { border-color: #d7decf; color: var(--olive); background: #fffefa; }
+.halo::before, .halo::after { background: linear-gradient(90deg, transparent, #c6cfbd, transparent); }
+.halo span, .divider span { background: #fffefa; }
+.eyebrow { color: #768568; }
+.cover h1, .event-card h2, .schedule h2, .gift h2, footer h2 { color: var(--deep-green); }
+.host, .signature { color: #72815f; }
+.quote { color: #647265; }
+.quote small { color: var(--gold); }
+.parents { color: #52634d; }
+.parents i, .divider, .gold-rule { color: var(--gold); }
+.down { color: var(--olive); }
+
+.date {
+  padding-top: 64px;
+  padding-bottom: 64px;
+  background: linear-gradient(180deg, #f0f3eb 0%, #f7f7f0 52%, #edf1e8 100%);
+  border-block: 1px solid #dce2d4;
+}
+.date-line { color: #718064; }
+.date-line strong { color: #435644; border-color: #cbd3c2; }
+.date-note { color: #69776d; }
+.countdown > div {
+  padding: 12px 8px 10px;
+  min-width: 62px;
+  border: 1px solid #dce2d4;
+  border-radius: 12px;
+  background: #fffefa;
+  box-shadow: 0 4px 12px #54604b0a;
+}
+.countdown strong { color: #536a50; }
+.countdown span { color: #829080; }
+.countdown-message { color: #536a50; }
+.calendar {
+  border-color: #d4dccd;
+  border-radius: 16px;
+  background: #fffefa;
+  box-shadow: 0 12px 28px #4b5b4414;
+}
+.calendar h2 { color: #52664e; }
+.calendar h2 span, .calendar-weekday { color: #8b7951; }
+.calendar-day { color: #566458; }
+.event-day { background: #748667; color: #fff; box-shadow: 0 3px 9px #66795748; }
+
+.events {
+  padding: 58px 25px;
+  gap: 22px;
+  background-color: #fffefa;
+  background-image: radial-gradient(ellipse at 0 0, #edf2e9 0, transparent 48%), radial-gradient(ellipse at 100% 100%, #f5f1e4 0, transparent 45%);
+}
+.event-card {
+  padding: 26px 18px 24px;
+  border: 1px solid #dce2d5;
+  border-radius: 18px;
+  background: linear-gradient(155deg, #fffefa, #f4f6ef);
+  box-shadow: 0 10px 25px #54604b12;
+}
+.event-icon, .gift-mark { color: #82916d; }
+.cross-symbol { color: #82916d; }
+.event-card p:not(.eyebrow) { color: #718075; }
+.event-card .time { color: #52634d; }
+.map-link { color: #637758; }
+.event-connector { color: var(--gold); }
+
+.photo-break, .portrait {
+  background-color: #f1f4ec;
+  background-image: url("assets/img/paloma.png"), url("assets/img/paloma2.png"), linear-gradient(135deg, #f3f5ef, #fffefa 50%, #f0f3eb);
+  background-repeat: no-repeat;
+  background-position: left 4px center, right 4px center, center;
+  background-size: 112px auto, 112px auto, cover;
+}
+.portrait { border-block: 1px solid #e3e8dc; }
+.photo-placeholder { border-color: #c7cfbd; outline-color: #ddcfaa; background: #fffefa; }
+.final-photo { background-color: #f4f2e8; }
+.schedule {
+  background: linear-gradient(180deg, #f1f4ec, #f8f8f2);
+  border-block: 1px solid #e0e5d9;
+}
+.schedule-row span:first-child { color: #788765; }
+.schedule-row i { border-color: #8b9a79; }
+.schedule-row i::after { background: #d6dfd0; }
+.gift { background: #fffefa; }
+.gift-mark { color: #91a080; }
+.gift > p:last-child { color: #718075; }
+footer {
+  background: linear-gradient(180deg, #f2f5ed, #eaf0e6);
+  border-top: 1px solid #d9e0d2;
+}
+footer label { color: #667668; }
+footer input { border-color: #cbd6c7; border-radius: 8px; background: #fffefa; }
+footer input:focus { border-color: #7d916e; box-shadow: 0 0 0 3px #80936e20; }
+.rsvp { color: #fffefa; background: #708365; border-color: #708365; border-radius: 30px; }
+.rsvp:hover { color: #fff; background: #576b51; border-color: #576b51; }
+.phone { color: #6d7b70; }
+.footer-flourish { color: #a28a56; }
+
+#sobre {
+  background-color: #eff3eb;
+  background-image: url("assets/img/paloma2.png"), url("assets/img/paloma.png"), radial-gradient(ellipse at center, #fffefa, #e7eee3 100%);
+}
+.sobre-caja {
+  background: linear-gradient(145deg, #f2f5ed, #dce6d5);
+  box-shadow: 0 24px 48px #44563b30, 0 0 0 1px #b79b5c88;
+}
+.carta { background: #fffefa; border-color: #d6c69e; }
+.carta-t { color: #65775a; }
+.carta strong { color: #8b7951; }
+.bolsillo { background: linear-gradient(155deg, #e5ecdf, #cbd8c2); }
+.solapa { background: linear-gradient(180deg, #f0f4eb, #cfdbc5); filter: drop-shadow(0 5px 4px #43563a38); }
+#sello { background: radial-gradient(circle at 34% 28%, #c6ad72, #947744 76%); border-color: #eadbb9; }
+.sobre-hint { color: #62755c; }
+
+@media (max-width: 600px) {
+  .cover { background-position: left -7px top 98px, right -7px top 98px, center; background-size: 90px auto, 90px auto, cover; }
+  .events { background-size: 0, 0; }
+  .event-card { padding: 16px 8px; border-radius: 14px; }
+  .countdown > div { min-width: 0; flex: 1; padding-inline: 4px; }
+  .photo-break, .portrait { background-size: 76px auto, 76px auto, cover; }
+}
+

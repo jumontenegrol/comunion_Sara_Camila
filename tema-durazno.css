@@ -1,0 +1,64 @@
+/* Solo colores alternativos: durazno, coral y crema. Se usa junto a tema-flores.css. */
+:root {
+  --gold: #bd795f;
+  --ink: #59483f;
+  --muted: #90786d;
+  --paper: #fffaf4;
+  --line: #ead8c9;
+  --section-wash: #fff3e9;
+  --olive: #b8735c;
+}
+body { background: #f3e9df; color: var(--ink); }
+.invitation { background: #fffaf4; box-shadow: 0 20px 60px #80594620; }
+.cover { border-color: #edcbb8; outline-color: #dba48d; background-color: #fffaf4; background-image: url("assets/img/paloma.png"), url("assets/img/cruz.png"), radial-gradient(ellipse at 50% 28%, #fffefa, #fff5ed 80%); }
+.halo { color: #c77c64; border-color: #edcbb8; }
+.halo::before, .halo::after { background: linear-gradient(90deg, transparent, #eac6b5, transparent); }
+.halo span, .divider span { background: #fffaf4; }
+.eyebrow { color: #bd795f; }
+.cover h1, .event-card h2, .schedule h2, .gift h2, footer h2 { color: #815a49; }
+.host, .signature { color: #c47b62; }
+.quote, .date-note, .event-card p:not(.eyebrow), .gift > p:last-child { color: #8b7469; }
+.parents { color: #815d4c; }
+.parents i, .divider, .gold-rule, .down { color: #cf9478; }
+.date, .schedule { background: linear-gradient(180deg, #fbefe6, #fff8f1); border-block: 1px solid #f0ddcf; }
+.date-line { color: #ba795f; }
+.date-line strong { color: #714f42; border-color: #ead3c4; }
+.countdown > div { min-width: 62px; padding: 12px 8px 10px; border: 1px solid #efd9ca; border-radius: 12px; background: #fffdfa; }
+.countdown strong { color: #b66f58; }
+.countdown span, .calendar-weekday { color: #a08070; }
+.calendar { border-color: #edd8c9; border-radius: 16px; background: #fffdfa; box-shadow: 0 10px 26px #80594616; }
+.calendar h2, .calendar-day { color: #795747; }
+.calendar h2 span { color: #c47b62; }
+.event-day { background: #ce8268; color: #fff; box-shadow: 0 3px 9px #bd795f4d; }
+.events { background: radial-gradient(ellipse at 0 0, #fbede3, transparent 50%), #fffaf4; }
+.event-card { padding: 26px 18px; border: 1px solid #edd9ca; border-radius: 18px; background: linear-gradient(150deg, #fffdf9, #fff4eb); box-shadow: 0 9px 24px #80594612; }
+.event-icon, .gift-mark, .cross-symbol { color: #c48067; }
+.event-card .time { color: #795747; }
+.map-link { color: #aa6e56; }
+.photo-break, .portrait { background: linear-gradient(135deg, #fff3e9, #fffaf4 50%, #f9e9dc); }
+.photo-placeholder { border-color: #e9c4af; outline-color: #f2dfd2; background: #fffdfa; }
+.final-photo { background-color: #fbefe6; }
+.schedule-row span:first-child { color: #be8067; }
+.schedule-row i { border-color: #cf9478; }
+.schedule-row i::after { background: #ead5c7; }
+footer { background: linear-gradient(180deg, #fff3e9, #f8e9dd); border-top: 1px solid #ebd3c3; }
+footer label { color: #826c61; }
+footer input { border-color: #e8cdbb; border-radius: 8px; background: #fffdfa; }
+footer input:focus { border-color: #c57c63; box-shadow: 0 0 0 3px #c57c6320; }
+.rsvp { color: #fff; background: #c57c63; border-color: #c57c63; border-radius: 30px; }
+.rsvp:hover { background: #a9654f; border-color: #a9654f; }
+.phone { color: #8b7469; }
+.footer-flourish { color: #ce9478; }
+#sobre { background-image: url("assets/img/paloma2.png"), url("assets/img/paloma.png"), radial-gradient(ellipse at center, #fffaf4, #f4e3d6); }
+.sobre-caja { background: linear-gradient(145deg, #fff4e8, #efd3c0); box-shadow: 0 24px 48px #80594638, 0 0 0 1px #c58b7188; }
+.carta { background: #fffaf4; border-color: #e7c9b6; }
+.carta-t, .sobre-hint { color: #a66e56; }
+.carta strong { color: #c57c63; }
+.bolsillo { background: linear-gradient(155deg, #f9e4d6, #e9c2ad); }
+.solapa { background: linear-gradient(180deg, #fff0e3, #e9c4ae); filter: drop-shadow(0 5px 4px #80594638); }
+#sello { background: radial-gradient(circle at 34% 28%, #d49a7f, #a86450 76%); border-color: #f3dccb; }
+@media (max-width: 600px) {
+  .cover { background-position: left -7px top 98px, right -7px top 98px, center; background-size: 53px auto, 53px auto, cover; }
+  .event-card { padding: 16px 8px; border-radius: 14px; }
+  .countdown > div { min-width: 0; flex: 1; padding-inline: 4px; }
+}

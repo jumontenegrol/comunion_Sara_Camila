@@ -9,6 +9,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Great+Vibes&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+  <!-- Cambia solo la hoja de color; el diseño floral compartido permanece igual. -->
+  <link rel="stylesheet" href="tema-verde.css">
+  <link rel="stylesheet" href="tema-flores.css">
 </head>
 <body class="bloqueado">
   <div id="sobre" aria-label="Sobre de invitación">
@@ -120,7 +123,19 @@
       <img src="assets/img/angel.png" alt="Foto final" class="photo-only wide-image">
     </section>
   </main>
+  <audio id="musica" src="assets/audio/cancion.mp3" loop preload="none"></audio>
+  <button id="btnMusica" class="audio-toggle" type="button" aria-label="Pausar música" hidden>♫</button>
   <script>
+    // Guirnaldas por sección: la mitad derecha se refleja para formar las esquinas opuestas.
+    document.querySelectorAll('.cover, .portrait, .date, .events, .photo-break, .schedule, .gift, footer').forEach((section) => {
+      section.classList.add('botanical-section');
+      const panel = document.createElement('div');
+      panel.className = 'botanical-panel';
+      panel.setAttribute('aria-hidden', 'true');
+      panel.innerHTML = '<span class="botanical-side botanical-left"></span><span class="botanical-side botanical-right"></span>';
+      section.prepend(panel);
+    });
+
     // Fecha del evento: 21 de noviembre de 2026, a las 10:00 a. m. (hora Colombia).
     const eventDate = new Date('2026-11-21T10:00:00-05:00');
     const countdown = document.getElementById('countdown');
@@ -166,8 +181,30 @@
     }
 
     const sobre = document.getElementById('sobre');
+    const musica = document.getElementById('musica');
+    const btnMusica = document.getElementById('btnMusica');
+    btnMusica.addEventListener('click', function () {
+      if (musica.paused) {
+        musica.play().then(() => {
+          btnMusica.textContent = '♫';
+          btnMusica.setAttribute('aria-label', 'Pausar música');
+        }).catch(() => {});
+      } else {
+        musica.pause();
+        btnMusica.textContent = '♪';
+        btnMusica.setAttribute('aria-label', 'Reproducir música');
+      }
+    });
     document.getElementById('sello').addEventListener('click', function () {
       sobre.classList.add('abierto');
+      btnMusica.hidden = false;
+      musica.play().then(() => {
+        btnMusica.textContent = '♫';
+        btnMusica.setAttribute('aria-label', 'Pausar música');
+      }).catch(() => {
+        btnMusica.textContent = '♪';
+        btnMusica.setAttribute('aria-label', 'Reproducir música');
+      });
       window.setTimeout(function () {
         sobre.classList.add('fuera');
         document.body.classList.remove('bloqueado');

@@ -1,0 +1,152 @@
+/* Posiciones compartidas de las ilustraciones; los temas solo cambian los colores. */
+.cover {
+  background-position: left 66px top 74px, right 66px top 74px, center;
+  background-size: 195px auto, 195px auto, cover;
+}
+.portrait, .photo-break, .events {
+  background-image: linear-gradient(135deg, var(--section-wash), var(--paper) 50%, var(--section-wash));
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+.schedule, .gift, footer {
+  background-image: url("assets/img/cruz.png"), url("assets/img/paloma.png"), linear-gradient(135deg, var(--section-wash), var(--paper) 50%, var(--section-wash));
+  background-repeat: no-repeat;
+  background-position: left center, right center, center;
+  background-size: 130px auto, 130px auto, cover;
+}
+
+/* Portada: esquinas v2 y flores v3 grandes y elevadas en la parte inferior. */
+.cover .botanical-side {
+  width: clamp(170px, 38%, 300px);
+  background-image: url("assets/img/floresv2.png"), url("assets/img/floresv3.png");
+  background-repeat: no-repeat;
+  background-size: 440px auto, 380px auto;
+  background-position: left -110px top -112px, left -135px bottom 10px;
+}
+.cover h1 { margin-bottom: 14px; }
+.cover .host { margin-top: 0; font-size: clamp(34px, 6.5vw, 48px); line-height: 1.16; }
+
+/* Retrato: v4 y v3 hacia arriba y sin las esquinas v2. */
+.portrait .botanical-side {
+  width: clamp(150px, 30%, 220px);
+  background-image: url("assets/img/floresv4.png"), url("assets/img/floresv3.png");
+  background-size: 250px auto, 300px auto;
+  background-position: left -42px top -8px, left -92px bottom 20px;
+}
+
+/* Calendario: esquinas v2, v5 centrada y v3 elevada al pie. */
+.date .botanical-side {
+  width: clamp(170px, 34%, 250px);
+  background-image: url("assets/img/floresv2.png"), url("assets/img/floresv3.png");
+  background-size: 430px auto, 345px auto;
+  background-position: left -105px top -108px, left -118px bottom 62px;
+}
+.date .calendar {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background: rgba(255, 255, 255, .88);
+}
+.date .calendar::before {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  left: 50%;
+  top: 50%;
+  width: 245px;
+  height: 245px;
+  transform: translate(-50%, -50%);
+  background: url("assets/img/floresv5.png") center / contain no-repeat;
+  opacity: .22;
+  pointer-events: none;
+}
+.date .calendar h2, .date .calendar-grid { position: relative; z-index: 1; }
+
+/* Ceremonia y recepción: v4 y v3, llevadas hacia afuera. */
+.events .botanical-side {
+  background-image: url("assets/img/floresv4.png"), url("assets/img/floresv3.png");
+  background-size: 132px auto, 228px auto;
+  background-position: left -38px center, left -54px bottom 2px;
+}
+
+/* Foto de la paloma: v2 en esquinas y v4 bajo; el ángel conserva el marco original. */
+.photo-break .botanical-side {
+  width: clamp(170px, 34%, 250px);
+  background-image: url("assets/img/floresv2.png"), url("assets/img/floresv4.png");
+  background-size: 410px auto, 215px auto;
+  background-position: left -98px top -100px, left -46px bottom 4px;
+}
+
+/* Itinerario: un ramo v5 grande a cada lado. */
+.schedule .botanical-side {
+  width: clamp(170px, 31%, 235px);
+  background-image: url("assets/img/floresv5.png");
+  background-size: 320px auto;
+  background-position: left -78px center;
+}
+
+/* Regalo y RSVP: una sola flor, centrada como marca de agua. */
+.gift .botanical-side, footer .botanical-side {
+  left: 50%;
+  right: auto;
+  transform: translateX(-50%);
+  width: min(100%, 340px);
+  opacity: .28;
+}
+.gift .botanical-left {
+  background-image: url("assets/img/floresv3.png");
+  background-size: 360px auto;
+  background-position: center 88%;
+}
+.gift .botanical-right { display: none; }
+footer .botanical-left {
+  background-image: url("assets/img/floresv5.png");
+  background-size: 350px auto;
+  background-position: center 90%;
+}
+footer .botanical-right { display: none; }
+
+@media (max-width: 600px) {
+  .cover {
+    background-position: left 18px top 78px, right 18px top 78px, center;
+    background-size: 142px auto, 142px auto, cover;
+  }
+  .portrait, .photo-break, .events { background-size: cover; }
+  .schedule, .gift, footer { background-size: 92px auto, 92px auto, cover; }
+  .cover .botanical-side {
+    width: 165px;
+    background-size: 300px auto, 280px auto;
+    background-position: left -78px top -80px, left -102px bottom 14px;
+  }
+  .cover h1 { margin-bottom: 12px; }
+  .portrait .botanical-side {
+    width: 128px;
+    background-size: 190px auto, 235px auto;
+    background-position: left -28px top -8px, left -68px bottom 22px;
+  }
+  .date .botanical-side {
+    width: 145px;
+    background-size: 270px auto, 260px auto;
+    background-position: left -65px top -66px, left -80px bottom 38px;
+  }
+  .date .calendar::before { width: 195px; height: 195px; opacity: .18; }
+  .events .botanical-side {
+    width: 122px;
+    background-size: 110px auto, 180px auto;
+    background-position: left -30px center, left -50px bottom 5px;
+  }
+  .photo-break .botanical-side {
+    width: 145px;
+    background-size: 275px auto, 165px auto;
+    background-position: left -68px top -67px, left -36px bottom 2px;
+  }
+  .schedule .botanical-side {
+    width: 132px;
+    background-size: 245px auto;
+    background-position: left -62px center;
+  }
+  .gift .botanical-side, footer .botanical-side { width: min(100%, 280px); }
+  .gift .botanical-left { background-size: 300px auto; background-position: center 90%; }
+  footer .botanical-left { background-size: 300px auto; background-position: center 92%; }
+}
